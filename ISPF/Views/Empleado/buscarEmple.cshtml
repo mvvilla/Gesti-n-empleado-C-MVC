@@ -1,0 +1,198 @@
+﻿@model ISPF.Models.EmpleadoModelo
+@{
+    /**/
+
+    ViewBag.Title = "empleado";
+}
+
+<h2>Informacion del Empleado</h2>
+<a href="@Url.Action("exportar","Empleado",new {dato=ViewBag.data.dpi })">Exportar Reporte</a><br>
+<p class="alert-info">Datos Generales del Empelado</p>
+
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        <label>DPI</label>
+        @Html.TextBoxFor(model => model.dpi, new { @class = "form-control" });
+    </div>
+    <div class="form-group">
+        <label>Nombre</label>
+        @Html.TextBoxFor(model => model.nombre, new { @class = "form-control" });
+    </div>
+    <div class="form-group">
+        <label>Apellido</label>
+        @Html.TextBoxFor(model => model.apellido, new { @class = "form-control" });
+    </div>
+    <div class="form-group">
+        <label>Fecha de Nacimiento</label>
+        @Html.TextBoxFor(model => model.fechaN, new { @class = "form-control" });
+    </div>
+    <div class="form-group">
+        <label>Genero</label>
+        @Html.TextBoxFor(model => model.genero, new { @class = "form-control" });
+    </div>
+    <div class="form-group">
+        <label>Direccion</label>
+        @Html.TextBoxFor(model => model.direccion, new { @class = "form-control" });
+    </div>
+    <div class="form-group">
+        <label>Codigo de Empleado</label>
+        @Html.TextBoxFor(model => model.codigoEmple, new { @class = "form-control" });
+    </div>
+    <div class="form-group">
+        <label>Nit</label>
+        @Html.TextBoxFor(model => model.nit, new { @class = "form-control" });
+    </div>
+    <div class="form-group">
+        <label>Correo</label>
+        @Html.TextBoxFor(model => model.correo, new { @class = "form-control" });
+    </div>
+    <div class="form-group">
+        <label>Igss</label>
+        @Html.TextBoxFor(model => model.igss, new { @class = "form-control" });
+    </div>
+    <div class="form-group">
+        <label>Cuenta Bancaria</label>
+        @Html.TextBoxFor(model => model.cuentaBancaria, new { @class = "form-control" });
+    </div>
+    <div class="form-group">
+        <label>Nombre de la madre</label>
+        @Html.TextBoxFor(model => model.nomMadre, new { @class = "form-control" });
+    </div>
+    <div class="form-group">
+        <label>Nombre del padre</label>
+        @Html.TextBoxFor(model => model.nomPadre, new { @class = "form-control" });
+    </div>
+    <div class="form-group">
+        <label>Nombre del conyugue</label>
+        @Html.TextBoxFor(model => model.nomConyugue, new { @class = "form-control" });
+    </div>
+    <div class="form-group">
+        <label>Nivel Educativo</label>
+        @Html.TextBoxFor(model => model.nivelAca, new { @class = "form-control" });
+    </div>
+    <div class="form-group">
+        <label>Grado Academico</label>
+        @Html.TextBoxFor(model => model.gradoAca, new { @class = "form-control" });
+    </div>
+    <div class="form-group">
+        <label>Puesto</label>
+        @Html.TextBoxFor(model => model.puesto, new { @class = "form-control" });
+    </div>
+    <div class="form-group">
+        <label>Fecha de Graducaci&oacute;n</label>
+        @Html.TextBoxFor(model => model.fechaGra, new { @class = "form-control" });
+    </div>
+    <div class="form-group">
+        <label>Fecha de Inicio de Labores</label>
+        @Html.TextBoxFor(model => model.fechaIngreso, new { @class = "form-control" });
+    </div>
+}
+<br />
+<br />
+<div class="container">
+    <p class="alert-info">Datos profesionales del Empleado</p>
+    <form class="body-content">
+        <div class="form-group">
+            <label>Universidad</label>
+            <input type="text" id="uniEmple" name="uniEmpleProf" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label>Codigo Empleado</label>
+            <input type="text" name="codEmple" id="codEmpleProf" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label>No. Colegiado</label>
+            <input type="text" name="ncole" id="ncoleprof" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label>Fecha Colefiago</label>
+            <input type="text" name="fcole" id="fcoleprof" class="form-control" />
+        </div>
+    </form>
+</div>
+<br />
+<br />
+<div class="container">
+    <p class="alert-info">Beneficiario</p>
+    <div class="form-group">
+        <label>Dpi</label>
+        <input type="text" name="dpiB" id="dpiB" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Nombre</label>
+        <input type="text" name="nombreB" id="nombreB" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Apellido</label>
+        <input type="text" name="apellidoB" id="apellidoB" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Fecha de Nacimiento</label>
+        <input type="text" name="fechaNB" id="fechaNB" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Genero</label>
+        <input name="generoB" id="generoB" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Direcci&oacute;n</label>
+        <input type="text" name="dirB" id="dirB" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Parentesco</label>
+        <input type="text" name="partentescoB" id="partentescoB" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Fecha de Ingreso</label>
+        <input type="text" name="fechIngB" id="fechIngB" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Codigo Empleado</label>
+        <input type="text" name="codigoEmpleBene" id="codigoEmpleBene" class="form-control" />
+    </div>
+</div>
+
+
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        var dep = $("#dpi").val();
+        $.get("/Empleado/buscarProf", { cod: $("#dpi").val() }, function (data) {
+            $.each(data, function (index, row) {
+                $("#uniEmple").val(row.universidad);
+                $("#codEmpleProf").val(dep);
+                $("#ncoleprof").val(row.colegiado);
+                $("#fcoleprof").val(row.fechaCole);
+            });
+
+        });
+
+        $.get("/Empleado/buscarBene", { cod: $("#dpi").val() }, function (data) {
+            $.each(data, function (index, row) {
+                $("#dpiB").val(row.dpi);
+                $("#nombreB").val(row.nombre);
+                $("#apellidoB").val(row.apellido);
+                $("#fechaNB").val(row.fechaN);
+                $("#generoB").val(row.genero);
+                $("#dirB").val(row.direccion);
+                $("#partentescoB").val(row.parentesco);
+                $("#fechIngB").val(row.fechaIgreso);
+                $("#codigoEmpleBene").val(dep);
+            });
+
+        });
+
+
+    });
+    function reporte() {
+        $.get("/Empleado/exportar", { dato: $("#dpi").val() }, function (data) {
+            $.each(data, function (index, row) {
+
+            });
+
+        });
+        return false;
+    }
+
+</script>

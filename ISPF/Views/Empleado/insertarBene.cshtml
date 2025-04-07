@@ -1,0 +1,48 @@
+﻿@model ISPF.Models.BeneficiarioModelo
+@{
+    /**/
+
+    ViewBag.Title = "insertar Bene";
+}
+
+<h2>Insertar Beneficiario</h2>
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        <label>DPI</label>
+        @Html.TextBoxFor(model => model.dpi, new { @class = "form-control" });
+    </div>
+    <div class="form-group">
+        <label>Nombre</label>
+        @Html.TextBoxFor(model => model.nombre, new { @class = "form-control" });
+    </div>
+    <div class="form-group">
+        <label>Apellido</label>
+        @Html.TextBoxFor(modelo => Model.apellido, new { @class = "form-control" });
+    </div>
+    <div class="form-group">
+        <label>Fecha de Nacimiento</label>
+        @Html.TextBoxFor(modelo => Model.fechaN, new { @class = "form-control" });
+    </div>
+    <div class="form-group">
+        <label>Genero</label>
+        <select class="form-control" name="genero">
+            <option value="0">--Seleccione Genero--</option>
+            <option value="Masculino">Masculino</option>
+            <option value="Femenino">Femenino</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Direcci&oacute;n</label>
+        @Html.TextBoxFor(modelo => Model.direccion, new { @class = "form-control" });
+    </div>
+    <div class="form-group">
+        <label>Parentesco</label>
+        @Html.TextBoxFor(modelo => Model.parentesco, new { @class = "form-control" });
+    </div>
+    <div class="form-group">
+        <label>Codigo del Empleado</label>
+        @Html.TextBoxFor(modelo => Model.codigoEmpleP, new { @class = "form-control" });
+    </div>
+    <button type="submit" class="btn btn-primary">Insertar</button>
+}

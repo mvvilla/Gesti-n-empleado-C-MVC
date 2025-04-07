@@ -1,0 +1,43 @@
+﻿@model ISPF.Models.ProfesionalEmModelo
+@{
+    ViewBag.Title = "insertar Prof";
+}
+
+<h2>Insertar datos Profecionales</h2>
+
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        <label>Universidad</label>
+        <select class="form-control" name="universidad" id="universidad">
+            <option value="0">--Seleccione Universidad--</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Codigo del Empleado</label>
+        @Html.TextBoxFor(model => model.codigoEmpleado, new { @class = "form-control" });
+    </div>
+    <div class="form-group">
+        <label>Numero de Colegiado</label>
+        @Html.TextBoxFor(modelo => Model.colegiado, new { @class = "form-control" });
+    </div>
+    <div class="form-group">
+        <label>Fecha Coelgiado</label>
+        @Html.TextBoxFor(modelo => Model.fechaCole, new { @class = "form-control" });
+    </div>
+    <button type="submit" class="btn btn-primary">Insertar</button>
+}
+
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $.get("/Empleado/buscarUniversidad", function (data) {
+            $("#universidad").empty();
+            $("#universidad").append("<option value='0'>--Seleccione Universidad--</option>");
+            $.each(data, function (index, row) {
+                $("#universidad").append("<option value=" + row.codigo + ">" + row.codigo + "</option>");
+            });
+
+        });
+    });
+</script>

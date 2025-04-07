@@ -1,0 +1,115 @@
+﻿@model ISPF.Models.EmpleadoModelo
+@{
+    /**/
+
+    ViewBag.Title = "empleado";
+}
+
+<h2>Agregar Empleado</h2>
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        <label>DPI</label>
+        @Html.TextBoxFor(model => model.dpi, new { @class = "form-control" });
+    </div>
+    <div class="form-group">
+        <label>Nombre</label>
+        @Html.TextBoxFor(model => model.nombre, new { @class = "form-control" });
+    </div>
+    <div class="form-group">
+        <label>Apellido</label>
+        @Html.TextBoxFor(model => model.apellido, new { @class = "form-control" });
+    </div>
+    <div class="form-group">
+        <label>Fecha de Nacimiento</label>
+        @Html.TextBoxFor(model => model.fechaN, new { @class = "form-control" });
+    </div>
+    <div class="form-group">
+        <label>Genero</label>
+        <select class="form-control" name="genero">
+            <option value="0">--Seleccione Genero--</option>
+            <option value="Masculino">Masculino</option>
+            <option value="Femenino">Femenino</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Direcci&oacute;n</label>
+        @Html.TextBoxFor(model => model.direccion, new { @class = "form-control" });
+    </div>
+    <div class="form-group">
+        <label>Nit</label>
+        @Html.TextBoxFor(model => model.nit, new { @class = "form-control" });
+    </div>
+    <div class="form-group">
+        <label>Correo</label>
+        @Html.TextBoxFor(model => model.correo, new { @class = "form-control" });
+    </div>
+    <div class="form-group">
+        <label>Igss</label>
+        @Html.TextBoxFor(model => model.igss, new { @class = "form-control" });
+    </div>
+    <div class="form-group">
+        <label>No. Cuenta Bancaria</label>
+        @Html.TextBoxFor(model => model.cuentaBancaria, new { @class = "form-control" });
+    </div>
+    <div class="form-group">
+        <label>Nombre de la Madre</label>
+        @Html.TextBoxFor(model => model.nomMadre, new { @class = "form-control" });
+    </div>
+    <div class="form-group">
+        <label>Nombre del Padre</label>
+        @Html.TextBoxFor(model => model.nomPadre, new { @class = "form-control" });
+    </div>
+    <div class="form-group">
+        <label>Nombre del Conyugue</label>
+        @Html.TextBoxFor(model => model.nomConyugue, new { @class = "form-control" });
+    </div>
+    <div class="form-group">
+        <label>Nivel Academico</label>
+        @Html.TextBoxFor(model => model.nivelAca, new { @class = "form-control" });
+    </div>
+    <div class="form-group">
+        <label>Grado Academico</label>
+        @Html.TextBoxFor(model => model.gradoAca, new { @class = "form-control" });
+    </div>
+    <div class="form-group">
+        <label>Departamento</label>
+        <select class="form-control" name="depaEmple" id="depaEmple">
+            <option value="0">--Seleccione Departamento--</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Puesto</label>
+        @Html.DropDownListFor(model => model.puesto, new SelectList(""), "--Seleccionar Puesto--", new { @class = "form-control" });
+    </div>
+    <div class="form-group">
+        <label>Fecha de Graduaci&oacute;n</label>
+        @Html.TextBoxFor(model => model.fechaGra, new { @class = "form-control" });
+    </div>
+    <button type="submit" class="btn btn-primary">Insertar</button>
+}
+
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script>
+    $(document).ready(function () {
+        $.get("/Empleado/buscarDepa", function (data) {
+            $("#depaEmple").empty();
+            $("#depaEmple").append("<option value='0'>--Selecionar Departamento--</option>");
+            $.each(data, function (index, row) {
+                $("#depaEmple").append("<option value=" + row.codigo + ">" + row.codigo + "</option>");
+            });
+
+        });
+
+        $("#depaEmple").change(function () {
+            $.get("/Empleado/buscarPuesto", { cod: $("#depaEmple").val() }, function (data) {
+                $("#puesto").empty();
+                $("#puesto").append("<option value='0'>--Seleccionar Puesto--</option>");
+                $.each(data, function (index, row) {
+                    $("#puesto").append("<option value=" + row.codigo + ">" + row.codigo + "</option>");
+                });
+            });
+        });
+    });
+
+    </script>

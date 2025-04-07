@@ -1,0 +1,31 @@
+﻿@model ISPF.Models.UniversidadModelo
+@{
+    ViewBag.Title = "Universidad";
+}
+
+<h2>Gestion de Universidades</h2>
+<a class="btn btn-primary" href="@Url.Action("insertar","Universidad")">Nuevo</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th class="col">Codigo</th>
+            <th class="col">Nombre</th>
+            <th class="col">Pais</th>
+            <th class="col">Modificar</th>
+            <th class="col">Eliminar</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var list in ViewBag.data)
+        {
+            <tr>
+                <td>@list.codigo</td>
+                <td>@list.nombre</td>
+                <td>@list.pais</td>
+                <td><a href="@Url.Action("modificar",new {cod=list.codigo})" class="glyphicon glyphicon-edit">Modificar</a></td>
+                <td><a href="@Url.Action("eliminar",new { cod=list.codigo})" class="glyphicon glyphicon-trash">Eliminar</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+

@@ -1,0 +1,20 @@
+﻿@model ISPF.Models.DepartamentoModelo
+@{
+    ViewBag.Title = "departamento";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Agregar departamento</h2>
+
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        <label>Nombre</label>
+        @Html.TextBoxFor(model => model.codigo, new { @class = "form-control" });
+    </div>
+    <div class="form-group">
+        <label>Descripci&oacute;n</label>
+        @Html.TextAreaFor(model => model.des, new { @class = "form-control" });
+    </div>
+    <button type="submit" class="btn btn-primary">Insertar</button>
+}
